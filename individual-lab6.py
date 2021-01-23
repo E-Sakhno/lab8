@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 # 5. Использовать словарь, содержащий следующие ключи:
 # название пункта назначения рейса;
 # номер рейса;
@@ -12,7 +15,7 @@
 import sys
 
 
-def add():
+def add(flights):
     # Запросить данные о рейсах.
     destination = input("Пункт назначения? ")
     numb = input("Номер рейса? ")
@@ -30,7 +33,7 @@ def add():
         flights.sort(key=lambda item: item.get('destination', ''))
 
 
-def show_list():
+def show_list(flights):
     # Заголовок таблицы.
     line = '+-{}-+-{}-+-{}-+-{}-+'.format(
         '-' * 4,
@@ -61,7 +64,7 @@ def show_list():
         print(line)
 
 
-def select():
+def select(flights):
     parts = command.split(' ', maxsplit=1)
     # Инициализировать счетчик.
     count = 0
@@ -88,7 +91,7 @@ def help():
 
 
 if __name__ == '__main__':
-    # Список работников.
+    # Список полётов.
     flights = []
     # Организовать бесконечный цикл запроса команд.
     while True:
@@ -98,12 +101,11 @@ if __name__ == '__main__':
         if command == 'exit':
             break
         elif command == 'add':
-            add()
+            add(flights)
         elif command == 'list':
-            show_list()
-
+            show_list(flights)
         elif command.startswith('select '):
-            select()
+            select(flights)
         elif command == 'help':
             help()
         else:
