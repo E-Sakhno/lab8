@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 def getInput():
     inp = input("Введите символы: ")
     return inp
@@ -24,5 +27,3 @@ if __name__ == '__main__':
     if testInput(a):
         a_int = strToInt(a)
         printInt(a_int)
-
-
